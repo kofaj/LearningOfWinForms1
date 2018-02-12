@@ -44,6 +44,7 @@
             this.CreateProjectButton.TabIndex = 22;
             this.CreateProjectButton.Text = "Create project";
             this.CreateProjectButton.UseVisualStyleBackColor = true;
+            this.CreateProjectButton.Click += new System.EventHandler(this.CreateProjectButton_Click);
             // 
             // newProjectNameLabel
             // 
@@ -81,6 +82,7 @@
             this.ListOfGeneratedDescriptions.Size = new System.Drawing.Size(121, 23);
             this.ListOfGeneratedDescriptions.Sorted = true;
             this.ListOfGeneratedDescriptions.TabIndex = 19;
+            this.ListOfGeneratedDescriptions.SelectedIndexChanged += new System.EventHandler(this.ListOfGeneratedDescriptions_SelectedIndexChanged);
             // 
             // label1
             // 
