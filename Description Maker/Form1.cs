@@ -37,6 +37,7 @@ namespace Description_Maker
         {
             DateTime todayDate = DateTime.Now; //po co mi to?
             AddingNewTableToDB();
+
         }
 
         private Label CreateLabelsForEachNewBox(int i)
@@ -102,7 +103,7 @@ namespace Description_Maker
         private void AddingNewTableToDB()
         {
             string SQLCommand = GenerateStringToCreateNewTable();
-            string ConString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\kofaj_000\Documents\Visual Studio 2017\Projects\Description Generator\Description Generator\ProjectDatabase.mdf;Integrated Security=True";
+            string ConString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\kofaj_000\Documents\Visual Studio 2017\Projects\Description Maker\Description Maker\ProjectDatabase.mdf;Integrated Security=True";
 
             try
             {

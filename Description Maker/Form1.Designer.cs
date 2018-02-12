@@ -38,7 +38,7 @@
             // 
             // CreateProjectButton
             // 
-            this.CreateProjectButton.Location = new System.Drawing.Point(321, 224);
+            this.CreateProjectButton.Location = new System.Drawing.Point(421, 273);
             this.CreateProjectButton.Name = "CreateProjectButton";
             this.CreateProjectButton.Size = new System.Drawing.Size(107, 23);
             this.CreateProjectButton.TabIndex = 22;
@@ -49,7 +49,7 @@
             // newProjectNameLabel
             // 
             this.newProjectNameLabel.AutoSize = true;
-            this.newProjectNameLabel.Location = new System.Drawing.Point(347, 57);
+            this.newProjectNameLabel.Location = new System.Drawing.Point(321, 56);
             this.newProjectNameLabel.Name = "newProjectNameLabel";
             this.newProjectNameLabel.Size = new System.Drawing.Size(81, 13);
             this.newProjectNameLabel.TabIndex = 21;
@@ -57,7 +57,7 @@
             // 
             // projectNameBox
             // 
-            this.projectNameBox.Location = new System.Drawing.Point(434, 57);
+            this.projectNameBox.Location = new System.Drawing.Point(408, 56);
             this.projectNameBox.Name = "projectNameBox";
             this.projectNameBox.Size = new System.Drawing.Size(120, 20);
             this.projectNameBox.TabIndex = 20;
@@ -77,7 +77,7 @@
             "7",
             "8",
             "9"});
-            this.ListOfGeneratedDescriptions.Location = new System.Drawing.Point(153, 53);
+            this.ListOfGeneratedDescriptions.Location = new System.Drawing.Point(129, 53);
             this.ListOfGeneratedDescriptions.Name = "ListOfGeneratedDescriptions";
             this.ListOfGeneratedDescriptions.Size = new System.Drawing.Size(121, 23);
             this.ListOfGeneratedDescriptions.Sorted = true;
@@ -95,7 +95,7 @@
             // 
             // PDFSaveButton
             // 
-            this.PDFSaveButton.Location = new System.Drawing.Point(436, 224);
+            this.PDFSaveButton.Location = new System.Drawing.Point(421, 231);
             this.PDFSaveButton.Name = "PDFSaveButton";
             this.PDFSaveButton.Size = new System.Drawing.Size(107, 23);
             this.PDFSaveButton.TabIndex = 17;
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 268);
+            this.ClientSize = new System.Drawing.Size(546, 318);
             this.Controls.Add(this.CreateProjectButton);
             this.Controls.Add(this.newProjectNameLabel);
             this.Controls.Add(this.projectNameBox);
