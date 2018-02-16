@@ -35,9 +35,19 @@ namespace Description_Maker
 
         private void CreateProjectButton_Click(object sender, EventArgs e)
         {
-            DateTime todayDate = DateTime.Now; //po co mi to?
-            AddingNewTableToDB();
-
+            if (BoxesAndLabelsGeneratedbyMethod.Count > 0)
+            {
+               // GetTextBoxStrings();
+            }
+            OpenNewForm();
+        }
+        
+        private void OpenNewForm()
+        {
+            string[] fake = { "Projekt Nazwa", "Description 1", "Description 2" };
+            AddingDataForm secondForm = new AddingDataForm(fake); //zmieniony konstruktor + GetTextBoxStrings()
+            secondForm.Show();
+            this.Hide();
         }
 
         private Label CreateLabelsForEachNewBox(int i)
@@ -62,33 +72,6 @@ namespace Description_Maker
             return textBox;
         }
 
-        private List<GeneratedItem> BoxesAndLabelsGeneratedbyMethod = new List<GeneratedItem>();
-
-        private string GenerateStringToCreateNewTable()
-        {
-            string[] myTemporaryList = GetTextBoxStrings();
-            string namesOfColumns = null;
-
-            for (int i = 1; i < myTemporaryList.Length; i++)
-            {
-                namesOfColumns += "['" + myTemporaryList[i] + "'] [varchar](max) NOT NULL,";
-            }
-
-            string con = String.Format("CREATE TABLE [dbo].[{0}]("
-                                + "[ID] [int] IDENTITY(1,1) NOT NULL,"
-                                + "[DateTime] [date] NOT NULL,"
-                                + "[{1}] [varchar](max) NOT NULL,"
-                                + "[{2}] [varchar](max) NOT NULL,"
-                                + "CONSTRAINT [pk_{0}] PRIMARY KEY CLUSTERED "
-                                + "("
-                                + "[ID] ASC"
-                                + ")WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]"
-                                + ") ON [PRIMARY]", myTemporaryList[0], myTemporaryList[1], myTemporaryList[2]);
-
-
-            return con;
-        }
-
         private String[] GetTextBoxStrings()
         {
             List<String> list = new List<String>();
@@ -100,25 +83,6 @@ namespace Description_Maker
             return list.ToArray();
         }
 
-        private void AddingNewTableToDB()
-        {
-            string SQLCommand = GenerateStringToCreateNewTable();
-            string ConString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\kofaj_000\Documents\Visual Studio 2017\Projects\Description Maker\Description Maker\ProjectDatabase.mdf;Integrated Security=True";
-
-            try
-            {
-                using (SqlCommand cmd = new SqlCommand(SQLCommand, new SqlConnection(ConString)))
-                {
-                    cmd.Connection.Open();
-                    cmd.ExecuteNonQuery();
-                    cmd.Connection.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
+        private List<GeneratedItem> BoxesAndLabelsGeneratedbyMethod = new List<GeneratedItem>();
     }
 }

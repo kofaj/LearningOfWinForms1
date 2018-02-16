@@ -42,7 +42,7 @@
             this.CreateProjectButton.Name = "CreateProjectButton";
             this.CreateProjectButton.Size = new System.Drawing.Size(107, 23);
             this.CreateProjectButton.TabIndex = 22;
-            this.CreateProjectButton.Text = "Create project";
+            this.CreateProjectButton.Text = "Next";
             this.CreateProjectButton.UseVisualStyleBackColor = true;
             this.CreateProjectButton.Click += new System.EventHandler(this.CreateProjectButton_Click);
             // 
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 318);
+            this.ClientSize = new System.Drawing.Size(544, 317);
             this.Controls.Add(this.CreateProjectButton);
             this.Controls.Add(this.newProjectNameLabel);
             this.Controls.Add(this.projectNameBox);
