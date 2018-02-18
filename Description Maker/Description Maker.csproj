@@ -66,6 +66,7 @@
     <Compile Include="AddingDataForm.Designer.cs">
       <DependentUpon>AddingDataForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataGridOperations.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

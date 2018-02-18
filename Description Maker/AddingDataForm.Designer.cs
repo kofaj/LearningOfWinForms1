@@ -32,6 +32,7 @@
             this.GenButton = new System.Windows.Forms.Button();
             this.addRowsButton = new System.Windows.Forms.Button();
             this.noOfAddingRows = new System.Windows.Forms.TextBox();
+            this.PasteData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.myGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             this.GenButton.TabIndex = 23;
             this.GenButton.Text = "Generate labels";
             this.GenButton.UseVisualStyleBackColor = true;
+            this.GenButton.Click += new System.EventHandler(this.GenButton_Click);
             // 
             // addRowsButton
             // 
@@ -69,17 +71,30 @@
             this.noOfAddingRows.Size = new System.Drawing.Size(107, 20);
             this.noOfAddingRows.TabIndex = 25;
             // 
+            // PasteData
+            // 
+            this.PasteData.Location = new System.Drawing.Point(555, 235);
+            this.PasteData.Name = "PasteData";
+            this.PasteData.Size = new System.Drawing.Size(107, 23);
+            this.PasteData.TabIndex = 26;
+            this.PasteData.Text = "Paste Data";
+            this.PasteData.UseVisualStyleBackColor = true;
+            this.PasteData.Click += new System.EventHandler(this.PasteData_Click);
+            // 
             // AddingDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 404);
+            this.Controls.Add(this.PasteData);
             this.Controls.Add(this.noOfAddingRows);
             this.Controls.Add(this.addRowsButton);
             this.Controls.Add(this.GenButton);
             this.Controls.Add(this.myGridView);
+            this.KeyPreview = true;
             this.Name = "AddingDataForm";
             this.Text = "AddingDataForm";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddingDataForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.myGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -92,5 +107,6 @@
         private System.Windows.Forms.Button GenButton;
         private System.Windows.Forms.Button addRowsButton;
         private System.Windows.Forms.TextBox noOfAddingRows;
+        private System.Windows.Forms.Button PasteData;
     }
 }

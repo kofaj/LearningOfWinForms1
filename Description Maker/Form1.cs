@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -21,19 +20,19 @@ namespace Description_Maker
             {
                 foreach (var item in BoxesAndLabelsGeneratedbyMethod)
                 {
-                    item.label.Dispose();
-                    item.textBox.Dispose();
+                    item.Label.Dispose();
+                    item.TextBox.Dispose();
                 }
                 BoxesAndLabelsGeneratedbyMethod.RemoveRange(selectedIndex - 1, BoxesAndLabelsGeneratedbyMethod.Count - selectedIndex);
             }
 
             for (int i = 0; i < selectedIndex; i++)
             {
-                BoxesAndLabelsGeneratedbyMethod.Add(new GeneratedItem { textBox = CreateNewBoxWithDescription(i), label = CreateLabelsForEachNewBox(i) });
+                BoxesAndLabelsGeneratedbyMethod.Add(new GeneratedItem { TextBox = CreateNewBoxWithDescription(i), Label = CreateLabelsForEachNewBox(i) });
             }
         }
 
-        private void CreateProjectButton_Click(object sender, EventArgs e)
+        private void CreateProjectButton_Click(object sender, EventArgs e) //pamietac aby zmienic
         {
             if (BoxesAndLabelsGeneratedbyMethod.Count > 0)
             {

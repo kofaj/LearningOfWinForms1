@@ -4,14 +4,13 @@ namespace Description_Maker
 {
     class GeneratedItem
     {
-        public Label label { get; set; }
-        public TextBox textBox { get; set; }
-        public string desciption { get; set; }
+        public Label Label { get; set; }
+        public TextBox TextBox { get; set; }
+        public string Desciption { get; set; }
     }
 
     static class CheckUserInput
     {
-        //private static TextBox box = new TextBox();
         const int MaxNumberOfCopies = 400;
 
         public static bool IsInputAnumber(TextBox box)
@@ -20,7 +19,7 @@ namespace Description_Maker
             return input;
         }
         
-        public static bool IsNumberFine(int number)
+        public static bool IsNumberTooLarge(int number)
         {
             if (number < MaxNumberOfCopies)
             {

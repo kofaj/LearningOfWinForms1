@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Description_Maker
@@ -20,6 +14,7 @@ namespace Description_Maker
             InitializeComponent();
             DataFromForm = test;
             CreateDataForRows();
+            DataGridOperations.DefaultSelectedCell(ref myGridView);
         }
 
         private void AddingNewTableToDB()
@@ -77,9 +72,8 @@ namespace Description_Maker
 
         private DataTable TakeDataFromForm()
         {
-            //specialna kolumna z lp.
-            dt.Columns.Add(new DataColumn("No.", typeof(int)));
-            dt.Columns["No."].ReadOnly = true;
+            dt.Columns.Add(DataGridOperations.AddFirstColumn());
+            dt.Rows.Add(DataGridOperations.AddNewRow(ref dt));
 
             for (int i = 1; i < DataFromForm.Length; i++)
             {
@@ -90,14 +84,15 @@ namespace Description_Maker
 
         private void AddRowsButton_Click(object sender, EventArgs e)
         {
-            if (CheckUserInput.IsInputAnumber(noOfAddingRows) == true && CheckUserInput.IsNumberFine(GrabNumberFromInput()) == true)
+            if (CheckUserInput.IsInputAnumber(noOfAddingRows) == true && CheckUserInput.IsNumberTooLarge(GrabNumberFromInput()) == true)
             {
                 int no = GrabNumberFromInput();
                 for (int i = 0; i < no; i++)
                 {
-                    AddRow();
+                    dt.Rows.Add(DataGridOperations.AddNewRow(ref dt));
                 }
             }
+            DataGridOperations.DefaultSelectedCell(ref myGridView);
         }
 
         private int GrabNumberFromInput()
@@ -105,16 +100,29 @@ namespace Description_Maker
             return Convert.ToInt32(noOfAddingRows.Text);
         }
 
-        private void AddRow()
-        {
-            DataRow newRow = dt.NewRow();
-            dt.Rows.Add(newRow);
-        }
-        
-        DataTable dt = new DataTable
+         DataTable dt = new DataTable
         {
             Locale = System.Globalization.CultureInfo.CurrentCulture
         };
 
+        private void PasteData_Click(object sender, EventArgs e)
+        {
+            DataGridOperations.PasteInData(ref myGridView);
+        }
+
+        private void AddingDataForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                DataGridOperations.PasteInData(ref myGridView);
+            }
+                this.Cursor = Cursors.Default;
+        }
+
+        private void GenButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
